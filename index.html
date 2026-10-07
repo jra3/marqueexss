@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marquee XSS Technologies</title>
+<meta name="description" content="Marquee XSS Technologies LLC: software development and product management.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230d1117'/><text x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' fill='%23ff5f56' text-anchor='middle'>&lt;/&gt;</text></svg>">
+<style>
+  :root {
+    --bg: #0d1117;
+    --fg: #c9d1d9;
+    --dim: #6e7681;
+    --red: #ff5f56;
+    --tag: #7ee787;
+    --str: #a5d6ff;
+    --link: #79c0ff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.6 ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 16px;
+  }
+  main { max-width: 44rem; width: 100%; margin: 0 auto; }
+  h1 {
+    font-size: clamp(1.4rem, 5.5vw, 2.6rem);
+    line-height: 1.25;
+    margin: 0 0 2rem;
+    overflow-wrap: anywhere;
+    font-weight: 700;
+  }
+  h1 .q { color: var(--str); }
+  h1 .t { color: var(--tag); }
+  h1 .x { color: var(--red); }
+  h1 .cur {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    vertical-align: -0.12em;
+    margin-left: 0.1em;
+    background: var(--fg);
+    animation: blink 1.1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { h1 .cur { animation: none; } }
+  ul { list-style: none; padding: 0; margin: 0 0 2.5rem; }
+  li { margin: 0.35rem 0; }
+  li::before { content: "> "; color: var(--dim); }
+  a { color: var(--link); text-decoration: none; }
+  a:hover, a:focus-visible { text-decoration: underline; }
+  footer { color: var(--dim); font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1><span class="q">"</span>/&gt;<span class="t">&lt;marquee&gt;</span><span class="x">XSS</span><span class="t">&lt;/marquee&gt;</span><span class="cur" aria-hidden="true"></span></h1>
+  <ul>
+    <li><a href="https://github.com/jra3">github.com/@jra3</a></li>
+    <li><a href="https://skillissuesblog.com">skillissuesblog.com</a></li>
+  </ul>
+  <footer>Marquee XSS Technologies LLC &middot; New York</footer>
+</main>
+</body>
+</html>
